@@ -1,11 +1,11 @@
 # -*- encoding: utf-8 -*-
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'oris.ge/version'
+require 'oris/version'
 
 Gem::Specification.new do |gem|
   gem.name          = "oris.ge"
-  gem.version       = Oris.ge::VERSION
+  gem.version       = ORIS::VERSION
   gem.authors       = ["Dimitri Kurashvili"]
   gem.email         = ["dimitri@c12.ge"]
   gem.description   = %q{Library for ORIS.GE accounting}
@@ -17,6 +17,5 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
-	s.add_development_dependency 'rspec', '~> 2'
+	gem.add_development_dependency 'rspec', '~> 2'
 end
-
