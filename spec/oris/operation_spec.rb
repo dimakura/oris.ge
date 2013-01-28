@@ -40,3 +40,22 @@ describe 'operation to csv' do
   specify { subject[31].should == '' }
   specify { subject[32].should == '' }
 end
+
+describe 'VAT calculations' do
+  context do
+    subject { ORIS::Operation.new(amount: 10) }
+    its(:calc_amount) { should == 10 }
+  end
+  context do
+    subject { ORIS::Operation.new(amount: 10, type: ORIS::VAT_PRICE) }
+    its(:calc_amount) { should == 1.8 }
+  end
+  context do
+    subject { ORIS::Operation.new(amount: 10, type: ORIS::EXCLUDE_VAT_PRICE) }
+    its(:calc_amount) { should == 8.2 }
+  end
+  context do
+    subject { ORIS::Operation.new(amount: 10.34, type: ORIS::EXCLUDE_VAT_PRICE) }
+    its(:calc_amount) { should == 8.48 }
+  end
+end
