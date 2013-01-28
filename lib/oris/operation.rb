@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
+require 'c12-commons'
 
-class Operation
+class ORIS::Operation
   # Document number
   attr_accessor :number
   # Number of the document, this document is related to
@@ -29,18 +30,25 @@ class Operation
   # User who performed this operation and operation's date.
   attr_accessor :user, :sysdate
 
+  def initialize(opts = {})
+    opts.each do |k, v|
+      instance_variable_set("@#{k}", v) unless v.nil?
+    end
+  end
+
   # Operation representation as an arrya (row).
   def to_a
     docnumb  = self.number
     docdate  = self.date ? self.date.oris_format : Date.today.oris_format
     currency = self.currency ? self.currency : 'GEL'
-    project   = self.project ? self.project : ' მთ.წიგნი'.to_geo
+    project   = self.project ? self.project.to_geo : ' მთ.წიგნი'.to_geo
     sysdate  = self.sysdate ? self.sysdate.oris_format : Date.today.oris_format
-    unit = self.unit ? self.unit : 'ერთეული'
+    unit = self.unit ? self.unit.to_geo : 'ერთეული'.to_geo
     quant = self.quantity || 0
     quant2 = self.quantity_normal || quant
+    user = self.user ? self.user.to_geo : ''
     ['', '', '', docnumb, '0', docdate, self.acc_debit, self.acc_credit, '0', self.amount, currency,
-      self.description, '0', '1', unit, quant, quant2, project, self.user, '0', '9', '0', '', '0',
+      self.description, '0', '1', unit, quant, quant2, project, user, '0', '9', '0', '', '0',
       sysdate, self.related_to, '0', '1', '3', '', '0', '', '']
   end
 
