@@ -2,5 +2,4 @@
 require "oris/version"
 
 module ORIS
-  # TODO: place some code here
 end

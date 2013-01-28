@@ -18,4 +18,5 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
 	gem.add_development_dependency 'rspec', '~> 2'
+  gem.add_development_dependency 'c12-commons', '~> 0.1.0'
 end
