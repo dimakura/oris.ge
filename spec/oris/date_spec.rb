@@ -1,6 +1,5 @@
 # -*- encoding : utf-8 -*-
 require 'spec_helper'
-require 'date'
 
 describe 'date formatting in oris' do
   specify { Date.new(2012,5,1).oris_format().should == '1.05.2012' }
