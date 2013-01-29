@@ -38,6 +38,18 @@ module ORIS
     # User who performed this operation and operation's date.
     attr_accessor :user, :sysdate
 
+    # Errors.
+    def errors
+      @errors
+    end
+
+    # Validate this operation.
+    def validate
+      @errors = []
+      @errors.push('დებიტორული ანგარიში არაა განსაზღვრული') if self.acc_debit.blank?
+      @errors.push('კრედიტორული ანგარიში არაა განსაზღვრული') if self.acc_credit.blank?
+    end
+
     def initialize(opts = {})
       opts.each do |k, v|
         instance_variable_set("@#{k}", v) unless v.nil?
