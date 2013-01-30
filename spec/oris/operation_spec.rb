@@ -12,8 +12,8 @@ describe 'operation to csv' do
   specify { subject[3].should == '001' }
   specify { subject[4].should == '0' }
   specify { subject[5].should == Date.today.oris_format }
-  specify { subject[6].should == '7210-01' }
-  specify { subject[7].should == '1610-01' }
+  specify { subject[6].should == '7 2 10 01' }
+  specify { subject[7].should == '1 6 10 01' }
   specify { subject[8].should == '0' }
   specify { subject[9].should == 10 }
   specify { subject[10].should == 'GEL' }

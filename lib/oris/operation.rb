@@ -75,9 +75,9 @@ module ORIS
       quant = self.quantity || 0
       quant2 = self.quantity_normal || quant
       user = self.user ? self.user.to_geo : ''
-      ['', '', '', docnumb, '0', docdate, self.acc_debit, self.acc_credit, '0', self.calc_amount, currency,
-        self.description, '0', '1', unit, quant, quant2, project, user, '0', '9', '0', '', '0',
-        sysdate, self.related_to, '0', '1', '3', '', '0', '', '']
+      ['', '', '', docnumb, '0', docdate, ORIS.oris_acc_code(self.acc_debit), ORIS.oris_acc_code(self.acc_credit),
+        '0', self.calc_amount, currency, self.description, '0', '1', unit, quant, quant2, project, user,
+        '0', '9', '0', '', '0', sysdate, self.related_to, '0', '1', '3', '', '0', '', '']
     end
 
     # Convert to CSV.
