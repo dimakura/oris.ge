@@ -21,8 +21,12 @@ module ORIS
 
     # Debit (+) account number.
     attr_accessor :acc_debit
+    # Name of the debit account.
+    attr_accessor :name_debit
     # Credit (-) account number.
     attr_accessor :acc_credit
+    # Name of the credit account.
+    attr_accessor :name_credit
 
     # Amount and currency of the document.
     attr_accessor :amount, :currency, :type
