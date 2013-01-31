@@ -54,6 +54,10 @@ module ORIS
       @errors.push('კრედიტორული ანგარიში არაა განსაზღვრული') if self.acc_credit.blank?
     end
 
+    def valid?
+      self.errors.nil? or self.errors.size == 0
+    end
+
     def initialize(opts = {})
       opts.each do |k, v|
         instance_variable_set("@#{k}", v) unless v.nil?
