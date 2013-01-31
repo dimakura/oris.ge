@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 require 'c12-commons'
+require 'csv'
 
 module ORIS
   # Full price for operation type.
