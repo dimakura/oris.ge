@@ -5,6 +5,12 @@ require 'oris/operation'
 
 module ORIS
 
+  # Ledger code for VAT transaction (in-mode).
+  VAT_LEDGER_CODE_IN  = '3340'
+
+  # Ledger code for VAT transaction (out-mode).
+  VAT_LEDGER_CODE_OUT = '3330'
+
   # Format accounting code, according to ORIS conventions.
   def self.oris_acc_code(text)
     if text
