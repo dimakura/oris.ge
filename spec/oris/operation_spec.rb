@@ -48,14 +48,14 @@ describe 'VAT calculations' do
   end
   context do
     subject { ORIS::Operation.new(amount: 10, type: ORIS::VAT_PRICE) }
-    its(:calc_amount) { should == 1.8 }
+    its(:calc_amount) { should == 1.53 }
   end
   context do
     subject { ORIS::Operation.new(amount: 10, type: ORIS::EXCLUDE_VAT_PRICE) }
-    its(:calc_amount) { should == 8.2 }
+    its(:calc_amount) { should == 8.47 }
   end
   context do
     subject { ORIS::Operation.new(amount: 10.34, type: ORIS::EXCLUDE_VAT_PRICE) }
-    its(:calc_amount) { should == 8.48 }
+    its(:calc_amount) { should == 8.76 }
   end
 end

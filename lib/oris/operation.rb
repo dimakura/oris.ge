@@ -61,8 +61,8 @@ module ORIS
 
     def calc_amount
       case self.type
-      when VAT_PRICE then (self.amount * 0.18).round(2)
-      when EXCLUDE_VAT_PRICE then self.amount - (self.amount * 0.18).round(2)
+      when VAT_PRICE then (self.amount - (self.amount/1.18).round(2)).round(2)
+      when EXCLUDE_VAT_PRICE then (self.amount/1.18).round(2)
       else self.amount.round(2)
       end
     end
