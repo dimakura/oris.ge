@@ -3,12 +3,6 @@ require 'c12-commons'
 require 'csv'
 
 module ORIS
-  # Full price for operation type.
-  FULL_PRICE = 0
-  # VAT part of the price. Basically, `price*0.18`.
-  VAT_PRICE = 1
-  # Part of the price without VAT. Basically, `price - price*0.18`.
-  EXCLUDE_VAT_PRICE = 2
 
   class Operation
     # Document number

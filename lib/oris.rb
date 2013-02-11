@@ -5,6 +5,19 @@ require 'oris/operation'
 
 module ORIS
 
+  ## Operation types.
+  
+  # Full price for operation type.
+  FULL_PRICE = 0
+
+  # VAT part of the price. Basically, `price*0.18`.
+  VAT_PRICE = 1
+
+  # Part of the price without VAT. Basically, `price - price*0.18`.
+  EXCLUDE_VAT_PRICE = 2
+
+  ## Ledger codes
+
   # Ledger code for VAT transaction (in-mode).
   VAT_LEDGER_CODE_IN  = '3340'
 
